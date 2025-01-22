@@ -7,8 +7,11 @@ const movieController = Router();
 movieController.get('/create', (req, res) => {
     res.render('create')
 });
-movieController.get('/search', (req, res) => {
-    const movies = movieService.getAll();
+movieController.get('/movies/search', (req, res) => {
+
+    const filter = req.query;    
+    const movies = movieService.getAll(filter);
+    
     res.render('search', { movies })
 });
 movieController.post('/movies/create', (req, res) => {
