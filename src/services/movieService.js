@@ -1,7 +1,22 @@
 import movies from "../movies.js";
+import { v4 as uuid } from "uuid";
 
-export function findMovie(movieId){
-    const result = movies.find(movie => movie.id === movieId);
+export default {
+    findMovie(movieId){
+        const result = movies.find(movie => movie.id === movieId);
+    
+        return result;
+    },
+    createMovie(movieData){
+        const newId = uuid();
 
-    return result;
-}
+        movies.push({
+            id: newId,
+            ...movieData,
+        });
+        return newId;
+    }, 
+    getAll (){
+        return movies;
+    }
+} 
