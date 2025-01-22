@@ -18,7 +18,7 @@ export default [
         director: 'Rob Marshall',
         year: '2023',
         imageUrl: '/static/img/the-little-mermaid.jpg',
-        // rating: '',
+        rating: `<span id="stars">&#x2605; &#x2605; &#x2605;&#x2605;</span></p>`,
         description: "The youngest of King Triton's daughters, Ariel is a beautiful and spirited young mermaid with a thirst for adventure. Longing to find out more about the world beyond the sea, Ariel visits the surface and falls for the dashing Prince Eric. Following her heart, she makes a deal with the evil sea witch, Ursula, to experience life on land.",
     },
     {
