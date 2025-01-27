@@ -1,5 +1,5 @@
 import Movie from "../models/Movies.js";
-import { v4 as uuid } from "uuid";
+
 
 export default {
     findMovie(movieId){
@@ -8,13 +8,13 @@ export default {
         return query;
     },
     createMovie(movieData){
-        const newId = uuid();
-
-        movies.push({
-            id: newId,
+        const result = Movie.create({
             ...movieData,
+            rating: Number(movieData.rating),
+            year: Number(movieData.year)
         });
-        return newId;
+        
+        return result;
     }, 
     getAll (filter = {}){
         let query = Movie.find({});
