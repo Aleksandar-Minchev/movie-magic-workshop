@@ -7,21 +7,21 @@ const movieController = Router();
 movieController.get('/create', (req, res) => {
     res.render('create')
 });
-movieController.get('/movies/search', async (req, res) => {
+movieController.get('/search', async (req, res) => {
 
     const filter = req.query;    
     const movies = await movieService.getAll(filter);
 
     res.render('search', { movies, filter })
 });
-movieController.post('/movies/create', async (req, res) => {
+movieController.post('/create', async (req, res) => {
     const newMovie = req.body;
-    
+
     await movieService.createMovie(newMovie);
 
     res.redirect('/');
 });
-movieController.get('/movies/:movieId/details', async (req, res) => {
+movieController.get('/:movieId/details', async (req, res) => {
     const movieId = req.params.movieId;
     const movie = await movieService.findMovie(movieId);
 
