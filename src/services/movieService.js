@@ -30,5 +30,8 @@ export default {
         }
 
         return query;
+    },
+    attachCast (movieId, castId) {
+        return Movie.findByIdAndUpdate(movieId, {$push: {casts: castId}});
     }
 } 
