@@ -7,6 +7,9 @@ export default {
     
         return query;
     },
+    getOneWithCast (movieId){
+        return this.findMovie(movieId).populate('casts')
+    },
     createMovie(movieData){
         const result = Movie.create({
             ...movieData,
