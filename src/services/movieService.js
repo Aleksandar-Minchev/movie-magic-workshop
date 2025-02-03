@@ -10,11 +10,12 @@ export default {
     getOneWithCast (movieId){
         return this.findMovie(movieId).populate('casts')
     },
-    createMovie(movieData){
+    createMovie(movieData, creatorId){
         const result = Movie.create({
             ...movieData,
             rating: Number(movieData.rating),
-            year: Number(movieData.year)
+            year: Number(movieData.year),
+            creator: creatorId
         });
         
         return result;
