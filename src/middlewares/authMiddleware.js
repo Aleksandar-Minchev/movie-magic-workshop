@@ -15,6 +15,7 @@ export const authMiddleware = (req, res, next) => {
         const decodedToken = jwt.verify(token, SECRET)
         //Attach decoded token to the request
         req.user = decodedToken;
+        //Attach ctx to express and forward it to handlebars
         res.locals.user = decodedToken;
        
         next();
