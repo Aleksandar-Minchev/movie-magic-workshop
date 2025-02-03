@@ -18,15 +18,18 @@
 
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
                 <li><a href="/movies/search">Search</a></li>
+                <li><a href="/about">About</a></li>
                 <!--Users-->
+                {{#if user}}
                 <li><a href="/movies/create">Create Post</a></li>
                 <li><a href="/cast/create">Create Cast</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
-                <!--Guest-->
+                <li>{{user.email}}</li>
+                {{else}}
                 <li><a href="/auth/login">Login</a></li>
                 <li><a href="/auth/register">Register</a></li>
+                {{/if}}
             </ul>
 
         </nav>
