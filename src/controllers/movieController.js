@@ -74,6 +74,23 @@ movieController.get('/:movieId/edit', async (req, res) => {
     res.render('edit', { movie, categories });
 });
 
+movieController.post('/:movieId/edit', async (req, res) => {
+    const movieId = req.params.movieId;
+    const movieData = req.body;
+
+    const movie = await movieService.findMovie(movieId);
+    if (!movie.creator?.equals(req.user?.id)){
+        return res.redirect('/404');
+    }
+
+    await movieService.update(movieId, movieData)
+
+    res.redirect(`/movies/${movieId}/details`);
+});
+
+
+
+
 function categoryView(category){
     const categoryList = {
         'tv-show': 'TV Show',
